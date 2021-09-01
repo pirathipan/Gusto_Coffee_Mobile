@@ -1,0 +1,75 @@
+.content_admin{
+  display: flex;
+  padding-top: 120px!important;
+}
+
+.col_menu{
+  width: 25%;
+  background-color: #F4F3F1;
+}
+.col_content{
+  width: 75%;
+}
+.nav{
+  margin-top: 54%;
+}
+.nav-item:hover{
+  background-color: #d9bfb0;
+}
+a.nav-links{
+  color: black;
+  font-family: 'Iskra', serif;
+  font-size: 1em;
+}
+
+.classToBeAdded{
+  background-color: #d9bfb0
+}
+
+a:link {
+  text-decoration: none;
+  font-size: 1.1em;
+  font-family: 'Iskra', serif;
+}
+
+.nav-item{
+    height: 5vh;
+    align-items: center;
+    display: flex;
+    //margin: 0 auto;
+}
+
+.container{
+  position: fixed;
+  top: 10%;
+  background-color: #f4f3f1;
+  height: 100%;
+  width: 23%;
+}
+
+@media (max-width: 768px) {
+
+
+}
+
+@media (max-width: 425px) {
+  .container{
+      position: fixed;
+      top: 10%;
+      background-color: #f4f3f1;
+      height: 100%;
+      width: 100%;
+  }
+  .nav{
+    margin-top: 10%;
+    margin-left: 21%;
+
+  }
+  .nav-item {
+      height: 5vh;
+      align-items: center;
+      display: flex;
+      margin: 0 auto;
+  }
+}
+  

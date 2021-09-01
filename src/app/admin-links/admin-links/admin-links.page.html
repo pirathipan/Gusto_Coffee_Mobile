@@ -1,0 +1,28 @@
+
+<ion-content class="content_admin">
+  <ion-row class="container col_menu">
+      <ul class="nav nav-pills flex-column">
+
+          <li  class="nav-item" >
+              <a href="#"  class="nav-links">
+                  <a [routerLink]="['/admin-add-salon']" class="nav-links">Rajouter un salon</a>
+              </a>
+          </li>
+          <li  class="nav-item" >
+              <a href="#"  class="nav-links">
+                  <a [routerLink]="['/admin-all-salons']" class="nav-links">Tous les Salons</a>
+              </a>
+          </li>
+          <li  class="nav-item" >
+              <a href="#"  class="nav-links">
+                  <a [routerLink]="['/admin-all-reservations']" class="nav-links">Tous les Réservations</a>
+              </a>
+          </li>
+      </ul>
+  </ion-row>
+
+  <ion-row >
+      <router-outlet></router-outlet>
+  </ion-row>
+
+</ion-content>

@@ -1,0 +1,191 @@
+<ion-content class="content_produit">
+
+    <ion-row>
+        <div class="content_img">
+            <img src="../../assets/images/salon5.png" alt="salonOffice" class="img_legende">
+            <div class="my-text content_legende">
+                <div class="content_info">
+                    <h1 class="title">Coworking sur mesure à Paris 10 !</h1>
+                    <p class="sub_title" > Rejoingnez un espace collaboratif au coeur de l'innovation parisienne.</p>
+                </div>
+            </div>
+        </div>
+    </ion-row>
+
+<!-- image du salon + descreptif -->
+    <ion-row style="width: 100%; " class="content_objectif">
+        <h2 class="title">Un lieu pensé pour atteindre vos objectifs</h2>
+        <ion-col >
+            <div class="descSalon" style="font-family: Calibri"  *ngFor="let salon of salonList">
+                <img src="{{'https://localhost:8000' + salon.image.contentUrl }}" class="w-100 img-fluid"
+                alt="{{ salon.nomSalon }}">
+                <div class="paragraph">
+                    <h3 style="font-size: 1.9em;" class="text-center">{{ salon.nomSalon }}</h3>
+                    <p>{{ salon.descriptionSalon }}</p>
+                    <p>Nombre de places : {{salon.nombrePlaces}}</p>
+                    <p>A partir de: {{ salon.prix }}€/H</p>
+                  </div>
+            </div>
+        </ion-col>
+    </ion-row>
+
+
+
+    <!-- reservation -->
+    <div class="divReservation" >
+        <div class="row">
+          <div class="col-md-6">
+            <form [formGroup]="reserveForm" (ngSubmit)="onSubmit()">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="date_debut">Date de debut</span>
+                <input type="date" class="form-control"
+                       placeholder="Date de debut"
+                       aria-label="Date de debut"
+                       aria-describedby="date_debut"
+                       formControlName="dateDebut"
+                       value="date(now)"
+                       min="{{startedDate}}"
+                       required
+                >
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="heure_debut">Heure de debut</span>
+                <input type="time" class="form-control"
+                       id="heureDebut"
+                       placeholder="Heure de debut"
+                       aria-label="Heure de debut"
+                       aria-describedby="heure_debut"
+                       formControlName="heureDebut"
+                       required
+                >
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="heure_fin">Heure de fin</span>
+                <input type="time" class="form-control"
+                       id="heureFin"
+                       placeholder="Heure de fin"
+                       aria-label="Heure de fin"
+                       aria-describedby="heure_fin"
+                       formControlName="heureFin"
+                       required
+                >
+              </div>
+              <div class="invalid" *ngIf="errorMsg !== ''">
+                <p>{{ errorMsg }}</p>
+              </div>
+              <div *ngIf="!hasAuthToken()">
+                <p style="color: #dc3545;">Veillez-vous identifier pour réserver.</p>
+              </div>
+              <div class="text-center my-text">
+                <button style="width: 53vw;" class="btn btn-primary btn-lg p-0"  type="submit" (click)="calculDifferenceHeure()">Réserver</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-6">
+            <div id="payments">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <!-- service -->
+    <ion-row class="content_service">
+        <h2 class="title">Nos équipements et services inclus</h2>
+
+        <ion-row>
+            <ion-col class="col_3">
+                <button type="submit" float-left ion-button  color="primary" class="btnPrev" (click)="prev2()"> < </button>
+            </ion-col>
+
+            <ion-col class="col_6">
+                <ion-slides #slides2>
+
+                    <ion-slide >
+                        <ion-col size="12">
+                            <h5>Bien-être</h5>
+                            <div class="d-flex">
+                                <img src="../../assets/images/Food.png" alt="recep" class="img">
+                                <p class="para">Snack sucré & salé</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/coffee-min.png" alt="recep" class="img">
+                                <p class="para">Café & thé</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/tel-min.png" alt="recep" class="img">
+                                <p class="para">Cabines téléphoniques</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/clean-min.png" alt="recep" class="img">
+                                <p class="para">Evénements et conférences</p>
+                            </div>
+                        </ion-col>
+                    </ion-slide>
+
+                    <ion-slide>
+                        <ion-col size="12">
+                            <h5>Services</h5>
+                            <div class="d-flex">
+                                <img src="../../assets/images/reception-min.png" alt="bureau" class="img">
+                                <p class="para">Acceuil et invités</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/consergerie-min.png" alt="consergerie" class="img">
+                                <p class="para">Conciergerie</p>
+                            </div>
+                        </ion-col>
+
+                    </ion-slide>
+
+
+
+                    <ion-slide>
+                        <ion-col size="12">
+                            <h5>Equipements</h5>
+                            <div class="d-flex">
+                                <img src="../../assets/images/reception-min.png" alt="recep" class="img">
+                                <p class="para">Conciergerie</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/wifi-min.png" alt="recep" class="img">
+                                <p class="para">Wifi très haut débit et sécurisé</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/app-min.png" alt="recep" class="img">
+                                <p class="para">Application dédiée</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/printer-min.png" alt="recep" class="img">
+                                <p class="para">Impressions</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/burautique-min.png" alt="recep" class="img">
+                                <p class="para">Vente de support numériques</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/calendar-min.png"  alt="recep" class="img">
+                                <p class="para">Réservation en ligne</p>
+                            </div>
+                        </ion-col>
+                    </ion-slide>
+
+                </ion-slides>
+            </ion-col>
+
+            <ion-col class="col_3">
+                <button type="submit" float-right ion-button color="primary" class="btnNext" (click)="next2()"> > </button>
+            </ion-col>
+        </ion-row>
+
+
+    </ion-row>
+
+    <app-footer></app-footer>
+</ion-content>
+
+
+

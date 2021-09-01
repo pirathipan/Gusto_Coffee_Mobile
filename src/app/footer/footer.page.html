@@ -1,0 +1,140 @@
+<ion-footer class="content_footer">
+    <div class="container">
+        <div class="content_pc">
+            <div class="row d-flex m-3">
+
+                <div class="col-4 ">
+                    <h4>A propos</h4>
+                    <div class="content_propos">
+                        <div class="col">
+                            <p>Qui sommes-nous ?</p>
+                            <p>Partenaires</p>
+                            <p>Avis</p>
+                            <p>ML/CGU</p>
+                        </div>
+                        <div class="col">
+                            <p>Aide</p>
+                            <p>Recrutement</p>
+                            <p>Contact</p>
+                            <p>FAQ</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-3 content_offre">
+                    <h4>Nos offres</h4>
+                    <p>Nos offres de bureaux</p>
+                    <p>Nos services</p>
+                    <p>Réservation</p>
+                </div>
+
+                <div class="col-5">
+                    <div class="content_reseau">
+                        <h4 class="title">Suivez-nous</h4>
+                        <div class="content_reseau_img">
+                            <img src="assets/images/instagram-logo-min.png" alt="instagram">
+                            <img src="assets/images/in.png" alt="linkedin">
+                        </div>
+                    </div>
+
+                    <div class="content_news">
+                        <h4 class="title">S'abonner à la newsletter</h4>
+                        <div class="content_news_form">
+                            <div class="col">
+                                <input type="email" placeholder="Email">
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn_open">S'abonner</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-5" class="info_mention">
+                        &copy; Gusto Coffee 2021 - Tous droits réservés
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content_mobile">
+            <div class="content_btn">
+                <div>
+                    <button class="navbar-toggler btn_open" type="button" (click)="toggleNavbar1()">
+                        A propos
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" [ngClass]="{ 'show': navbarOpen1 }">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Qui sommes-nous ?</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Partenaires</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Avis</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Nos clients sont des pur génie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ML/CGU</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Aide</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="navbar-toggler btn_open" type="button" (click)="toggleNavbar2()">
+                        Nos offres
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" [ngClass]="{ 'show': navbarOpen2 }">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Nos offres de bureaux</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Nos services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Réservation</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_reseau">
+                <h4 class="title">Suivez-nous</h4>
+                <div class="content_reseau_img">
+                    <img src="assets/images/instagram-logo-min.png" alt="instagram">
+                    <img src="assets/images/in.png" alt="linkedin">
+                </div>
+            </div>
+
+            <div class="content_news">
+                <h4 class="title">S'abonner à la newsletter</h4>
+                <div class="content_news_form">
+                    <div class="col">
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn_open">S'abonner</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_mention">
+                <p>
+                    &copy; Gusto Coffee 2021 - Tous droits réservés
+                </p>
+            </div>
+        </div>
+    </div>
+</ion-footer>
+

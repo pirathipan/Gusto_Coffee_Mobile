@@ -1,0 +1,99 @@
+<ion-content>
+
+    <ion-row class="content_signup">
+
+        <ion-row  class="content_main">
+            <div class="content_img">
+                <img src="../../assets/images/6.png" alt="img_contactez" class="img_legende">
+                <div class="content_legende">
+                    <div style="margin-top: 15%;" class="content_info">
+                        <h1 class="title">Inscription</h1>
+                    </div>
+                </div>
+            </div>
+        </ion-row>
+
+
+        <ion-row class="row content_form">
+            <div class="my-bg">
+
+                <form style="margin-top: 9%;" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                    <!------ nom ------>
+                    <ion-row class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nom *" aria-label="Nom"
+                            aria-describedby="first-name" formControlName="firstName">
+                    </ion-row>
+
+                    <!-------------- prenom -------------------->
+                    <ion-row class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Prénom *" aria-label="Prénom *"
+                            aria-describedby="last-name" formControlName="lastName">
+                    </ion-row>
+
+                    <!------- email ----------------- -->
+                    <ion-row class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email *" aria-label="Email *"
+                            aria-describedby="email" formControlName="email">
+                    </ion-row>
+                    <ng-container *ngIf="form.email.errors">
+                        <h3 class="validator" *ngIf="form.email.errors.email">Votre email doit respecter le format email
+                        </h3>
+                    </ng-container>
+
+
+                    <!------------ mot de passe --------->
+                    <ion-row class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Mot de passe *"
+                            aria-label="Mot de passe *" aria-describedby="password" formControlName="password">
+                    </ion-row>
+                    <ng-container *ngIf="form.password.errors">
+                        <h3 class="validator" *ngIf="form.password.errors.minlength">Le mot de passe doit avoir minimum
+                            8 caractères
+                        </h3>
+                    </ng-container>
+
+
+                    <!-- Confirmation mot de passe -->
+                    <ion-row class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Confirmer mot de passe *"
+                            aria-label="Confirmer mot de passe *" aria-describedby="password1"
+                            formControlName="password1">
+                    </ion-row>
+
+                    <ng-container *ngIf="form.password1.errors">
+                        <h3 class="validator" *ngIf="form.password1.errors.minlength">Le mot de passe doit avoir minimum
+                            8 caractères
+                        </h3>
+                    </ng-container>
+
+                    <!-- ---------- Telephone ------ -->
+
+                    <ion-row class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Téléphone *" aria-label="Téléphone *"
+                            aria-describedby="telephone" formControlName="telephone" maxlength="10">
+                    </ion-row>
+                    <ng-container *ngIf="form.telephone.errors">
+                        <h3 class="validator" *ngIf="form.telephone.errors.pattern">Le mot de passe doit avoir minimum
+                            10 caractères
+                        </h3>
+                    </ng-container>
+
+                    <!------- captcha ------------- -->
+                     <ion-row class="input-group mb-3">
+                        <re-captcha (resolved)="captchaResolved($event)" [siteKey]="siteKey" formControlName="recaptcha">
+                        </re-captcha>
+                    </ion-row> 
+
+
+                    <!-------------- bouton validation --------->
+                    <ion-row class="text-center my-text">
+                        <button class="btn my-color mb-3" type="submit" [disabled]="!signupForm.valid">S'inscrire</button>
+                    </ion-row>
+
+                </form>
+
+            </div>
+        </ion-row>
+    </ion-row>
+    <app-footer></app-footer>
+</ion-content>

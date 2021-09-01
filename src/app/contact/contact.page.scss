@@ -1,0 +1,173 @@
+.content_main{
+    padding-top: 120px;
+}
+.content_contact{
+    //position: relative;
+    //top: 107px;
+    padding-bottom: 30px;
+}
+
+.content_img{
+    position: relative;
+    img {
+        width: 100%;
+        height: 1000px;
+        object-fit: cover;
+        filter: brightness(50%);
+        border-radius: 0;
+    }
+    .content_legende {
+        position: absolute;
+        top: 0;
+        color: white;
+        bottom: 0;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        font-size: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .content_info{
+            font-family: "Iskra";
+            h1{
+                font-size: 90px;
+            }
+            p{
+                font-size: 40px;
+            }
+        }
+    }
+}
+
+.content_form{
+    background-color: #D9BFB0;
+    padding: 20px 50px;
+    padding: 20px 50px;
+    .form-control{
+
+    }
+    .form_label{
+        display: none;
+    }
+}
+
+  
+  .my-btn {
+    background-color: #435FA8;
+    color: #FFFFFF;
+    width: 100%;
+    border-radius: 25px;
+  }
+
+  agm-map {
+    height: 350px;
+  }
+  .invalid-feedback {
+    text-decoration: none;
+    color: red;
+  }
+
+  .my-color {
+    background-color: #67A656;
+    color: white;
+    border-radius: 20px;
+    width: 25vw;
+    height: 6vh;
+    margin-top: 6%;
+    font-size: 1.3em;
+    margin-left: 13%;
+  }
+  
+  .my-btn {
+    background-color: #67A656;
+    color: white;
+    border-radius: 20px;
+    width: 25vw;
+    margin-top: 6%;
+    font-size: 1.3em;
+    margin-left: 14%;
+  
+  }
+  a:link{
+    text-decoration: none;
+    align-content: center;
+  }
+  
+  .mx-auto {
+    background-color: #DE9948;
+  }
+
+  input, textarea {
+    //width: 20vw;
+    border: none;
+  }
+
+  .row{
+    margin-top:2%
+  }
+
+
+.map-container{
+    height: 500px;
+    iframe{
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+    }
+}
+@media only screen and (max-width: 1025px) {
+
+    .content_img{
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content_legende {
+            height: 100%;
+            .content_info{
+                h1{
+                    font-size: 45px;
+                }
+                p{
+                    font-size: 25px;
+                }
+            }
+        }
+
+    }
+}
+
+//Smartphones paysages
+@media (max-width:481px) {
+
+    h2.title{
+        font-size: 25px;
+    }
+
+    .content_img{
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content_legende {
+            height: 100%;
+            .content_info{
+                h1{
+                    font-size: 25px;
+                }
+                p{
+                    font-size: 15px;
+                }
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,78 @@
+<ion-content >
+
+  <app-admin-links></app-admin-links>
+
+  <ion-row  class="block">
+
+    <h1>Rajouter un salons</h1>
+
+    <form   id="login" [formGroup]="salonForm" (ngSubmit)="onSubmit()">
+    
+      <!------------- nom salon ------------------>
+      <div  id="divNomSalon" class="input-group mb-3">
+        
+        <input type="text" class="form-control" placeholder="Nom du salon *"  formControlName="nomSalon">
+      </div>
+
+      <!-- --------------- description salon ------------------- -->
+      <div class="input-group mb-3">
+       
+        <textarea type="text" class="form-control" placeholder="Description du salon *"
+           formControlName="descriptionSalon"
+          rows="6">
+      </textarea>
+      </div>
+
+
+      <!-- ---- telecharger une image -------- -->
+      <span class="spanTelecharger" >Télécharger une image</span>
+      
+      <div class="input-group mb-3">
+        
+        <div class="divFile"  >
+          <input type="file" class="form-control"  placeholder="Telecharger une image " (change)="upload($event)" id="inputFile">
+  
+          <button id="btnFile"  class="btn-success btn" (click)="onUpload()">
+              Envoyer
+          </button>
+        </div>
+       
+      </div>
+
+      <!-- ----------------------- choisir une image---------- -->
+      <span class="spanImage">Choisir une image</span>
+
+      <div  id="divImage" class="d-flex mb-3">
+        
+        <div class="card"  *ngFor="let img of loadImage[0]; let i = index">
+          <img aria-describedby="imageId" [id]="'image'+ i" 
+            src="{{'https://localhost:8000' + img.contentUrl}}" alt="Card image cap" (click)="getImageName(img.id, i)"
+            ngDefaultControl class="imgSalon" >
+        </div>
+      </div>
+
+      <!-- ----- prix ---------------- -->
+      <div class="input-group mb-3">
+        
+        <input type="number" class="form-control" placeholder="prix *" 
+          formControlName="prix">
+      </div>
+
+      <!--------------------- nombre de place -------------------->
+      <div class="input-group mb-3">
+       
+        <input type="number" class="form-control" placeholder="Nombres de places *"  formControlName="nombrePlaces">
+
+      </div>
+
+      <!----------------------- bouton valider -------------------------->
+        <div class="ion-text-center">
+            <button class="btn my-color btn-default btn-block mb-3" type="submit">Ajouter</button>
+        </div>
+
+
+    </form>
+
+
+  </ion-row>
+</ion-content>

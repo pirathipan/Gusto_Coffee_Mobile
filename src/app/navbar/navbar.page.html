@@ -1,0 +1,62 @@
+
+
+
+
+  <ion-header style="background: white;">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark  container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/images/logo.png" alt="logo_coffee" class="logo_coffee img-fluid">
+        </a>
+
+        <button class="navbar-toggler bg-dark" type="button" (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" [ngClass]="{ 'show': navbarOpen }">
+            <ul class="navbar-nav mr-auto">
+                <ion-col  class="colLien" size="12">
+
+                <a [routerLink]="['accueil']">Acceuil</a>
+                </ion-col>
+
+                <ion-col  class="colLien"  size="12">
+                    <a [routerLink]="['offres']">Nos Salons</a>
+                </ion-col>
+
+                <ion-col class="colLien" size="12" *ngIf="rolesAdmin">
+                  <a [routerLink]="['admin-add-salon']">Dashboard</a>
+                </ion-col>
+
+                <ion-col class="colLien"  size="12">
+                    <a  [routerLink]="['contact']">Contact</a>
+                </ion-col>
+
+                <ion-col class="colLien" size="12">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" (click)="toggleDropdown()" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Compte
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md-start" aria-labelledby="navbarDropdown"
+                         [ngClass]="{ 'show': openDropdown }">
+                      <a class="dropdown-item" *ngIf="!hasAuthToken()">
+                        <span [routerLink]="['connexion']">Connexion</span>
+                      </a>
+                      <a class="dropdown-item" *ngIf="!hasAuthToken()">
+                        <span [routerLink]="['inscription']">Inscription</span>
+                      </a>
+        
+                      <a class="dropdown-item" *ngIf="hasAuthToken()">
+                        <span (click)="onLogout()">Deconnexion</span>
+                      </a>
+                    </div>
+                  </li>
+                </ion-col>
+            </ul>
+        </div>
+    </nav>
+
+</ion-header>
+  

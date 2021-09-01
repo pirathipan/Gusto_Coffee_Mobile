@@ -1,0 +1,162 @@
+<ion-content class="content_offre">
+
+    <ion-row class="content_main">
+        <div class="content_img">
+            <img src="../../assets/images/salon4.jpg" alt="salonOffice" class="img_legende">
+            <div class="my-text content_legende">
+                <div class="content_info">
+                    <h1 class="title">Nos offres de coworking à Paris.</h1>
+                    <p class="sub_title" >Nous proposons des offres et des services qui permettent d'alléger les charges quotidiennes <br> de la vie intra
+                        et extrapreunariale.</p>
+                </div>
+            </div>
+        </div>
+    </ion-row>
+
+    <!-- open space -->
+    <ion-row class="content_space">
+        <ion-row class="content_info" *ngFor="let salon of loadSalon[0] | slice: 0:1">
+            <h2 class="title" >{{salon.nomSalon}}</h2>
+            <ion-col class="">
+                <img src="{{'https://localhost:8000' + salon.image.contentUrl}}" class="img_user_tendance img-fluid w-100 h-100">
+            </ion-col>
+
+            <ion-col class="col">
+                <p class="sub_title paragraphe"> {{salon.descriptionSalon}}</p>
+                <button type="button" class="my-btn" [routerLink]="salon.id">Réserver</button>
+            </ion-col>
+
+        </ion-row>
+    </ion-row>
+
+    <!------ salon ----------->
+    <ion-row class="content_salon">
+        <h2 class="title" >Nos salons privés</h2>
+
+        <ion-row>
+            <ion-col class="col_3">
+                <button type="submit" float-left ion-button  color="primary" class="btnPrev" (click)="prev()"> <  </button>
+            </ion-col>
+            <ion-col class="col_6">
+                <ion-slides #slides>
+                    <ion-slide *ngFor="let salon of loadSalon[0]">
+                        <div class="card">
+                            <img src="{{'https://localhost:8000' + salon.image.contentUrl}}" class="card-img-top img-fluid w-100" alt="{{salon.nomSalon}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{salon.nomSalon}}</h5>
+                                <p class="textcard" style="font-family: CalibriBold">{{salon.descriptionSalon}}</p>
+                                <p class="textcard" >Nombre de places : {{salon.nombrePlaces}}</p>
+                                <p class="textcard" >A partir de {{salon.prix}}€/H</p>
+                                <div  class="text-center">
+                                    <button  class="my-btn btnsalon" [routerLink]="salon.id">Réserver</button>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-slide>
+        
+                </ion-slides>
+
+            </ion-col>
+            <ion-col class="col_3">
+                <button type="submit" float-right ion-button color="primary" class="btnNext" (click)="next()"> > </button>
+            </ion-col>
+
+        </ion-row>
+    </ion-row>
+
+
+    <!------ service ----- -->
+    <ion-row class="content_service">
+        <h2 class="title">Nos équipements et services inclus</h2>
+
+        <ion-row>
+            <ion-col class="col_3">
+                <button type="submit" float-left ion-button  color="primary" class="btnPrev" (click)="prev2()"> < </button>
+            </ion-col>
+
+            <ion-col class="col_6">
+                <ion-slides #slides2>
+
+                    <ion-slide >
+                        <ion-col size="12">
+                            <h5>Bien-être</h5>
+                            <div class="d-flex">
+                                <img src="../../assets/images/Food.png" alt="recep" class="img">
+                                <p class="para">Snack sucré & salé</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/coffee-min.png" alt="recep" class="img">
+                                <p class="para">Café & thé</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/tel-min.png" alt="recep" class="img">
+                                <p class="para">Cabines téléphoniques</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/clean-min.png" alt="recep" class="img">
+                                <p class="para">Evénements et conférences</p>
+                            </div>
+                        </ion-col>
+                    </ion-slide>
+
+                    <ion-slide>
+                        <ion-col size="12">
+                            <h5>Services</h5>
+                            <div class="d-flex">
+                                <img src="../../assets/images/reception-min.png" alt="bureau" class="img">
+                                <p class="para">Acceuil et invités</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/consergerie-min.png" alt="consergerie" class="img">
+                                <p class="para">Conciergerie</p>
+                            </div>
+                        </ion-col>
+
+                    </ion-slide>
+
+
+
+                    <ion-slide>
+                        <ion-col size="12">
+                            <h5>Equipements</h5>
+                            <div class="d-flex">
+                                <img src="../../assets/images/reception-min.png" alt="recep" class="img">
+                                <p class="para">Conciergerie</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/wifi-min.png" alt="recep" class="img">
+                                <p class="para">Wifi très haut débit et sécurisé</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/app-min.png" alt="recep" class="img">
+                                <p class="para">Application dédiée</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/printer-min.png" alt="recep" class="img">
+                                <p class="para">Impressions</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/burautique-min.png" alt="recep" class="img">
+                                <p class="para">Vente de support numériques</p>
+                            </div>
+                            <div class="d-flex">
+                                <img src="../../assets/images/calendar-min.png"  alt="recep" class="img">
+                                <p class="para">Réservation en ligne</p>
+                            </div>
+                        </ion-col>
+                    </ion-slide>
+
+                </ion-slides>
+            </ion-col>
+
+            <ion-col class="col_3">
+                <button type="submit" float-right ion-button color="primary" class="btnNext" (click)="next2()"> > </button>
+            </ion-col>
+        </ion-row>
+
+        <app-footer></app-footer>
+    </ion-row>
+
+
+    
+</ion-content>

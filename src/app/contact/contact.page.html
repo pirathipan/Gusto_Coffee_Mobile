@@ -1,0 +1,117 @@
+<ion-content class="content_contact">
+
+    <ion-row class="content_main">
+        <div class="content_img">
+            <img src="../../assets/images/6.png" alt="img_contactez" class="img_legende">
+            <div class="content_legende">
+                <div class="content_info">
+                    <h1 class="title">CONTACTEZ-NOUS!</h1>
+                </div>
+            </div>
+        </div>
+    </ion-row>
+
+
+    <ion-row class="content_form">
+
+        <ion-col size="12">
+
+            <form [formGroup]="contactForm" (ngSubmit)="onContactForm()" class="myForm ">
+
+                <ion-row class="row">
+
+                    <ion-col size="4" class="form_label">
+                        <span >Nom</span>
+                    </ion-col>
+
+                    <ion-col size="12">
+                    <input type="text" class="form-control" placeholder="Nom * " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                           formControlName="nom" [ngClass]="{ 'is-invalid': submitted && form.nom.errors }">
+                        <div *ngIf="submitted && form.nom.errors" class="invalid-feedback">
+                            <div *ngIf="form.nom.errors.required">Le nom est obligatoire</div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="row">
+                    <ion-col size="12" class="form_label">
+                        <span >Prenom</span>
+                    </ion-col>
+
+                    <ion-col size="12">
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" formControlName="prenom" placeholder="Prenom *"
+                        [ngClass]="{ 'is-invalid': submitted && form.prenom.errors }">
+                        <div *ngIf="submitted && form.prenom.errors" class="invalid-feedback">
+                            <div *ngIf="form.prenom.errors.required">Le prénom est obligatoire</div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="row">
+                    <ion-col size="12" class="form_label">
+                        <span >Email</span>
+                    </ion-col>
+
+                    <ion-col size="12">
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" formControlName="email" placeholder="Email *"
+                        [ngClass]="{ 'is-invalid': submitted && form.email.errors }">
+                        <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                            <div *ngIf="form.email.errors.required">L'email est obligatoire</div>
+                            <div *ngIf="form.email.errors.email">L'email ne correspond pas au format email</div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="row">
+                    <ion-col size="12" class="form_label">
+                        <span>Téléphone</span>
+                    </ion-col>
+
+                    <ion-col size="12">
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm"
+                        formControlName="telephone" placeholder="Telephone *"
+                        [ngClass]="{ 'is-invalid': submitted && form.telephone.errors }"
+                        >
+                        <div *ngIf="submitted && form.message.errors" class="invalid-feedback">
+                            <div *ngIf="form.message.errors.required">Le numéro de téléphone est obligatoire</div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="row">
+                    <ion-col size="12" class="form_label">
+                        <span id="password">Message</span>
+                    </ion-col>
+
+                    <ion-col size="12">
+                    <textarea type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" placeholder="Message *"
+                        formControlName="message"
+                        rows="3" [ngClass]="{ 'is-invalid': submitted && form.message.errors }">
+                    </textarea>
+                    <div *ngIf="submitted && form.telephone.errors" class="invalid-feedback">
+                        <div *ngIf="form.message.errors.minLength">Le message doit avoir au moins (10)caractères</div>
+                    </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <button type="button" class="btn my-btn">Envoyer</button>
+                </ion-row>
+
+            </form>
+
+        </ion-col>
+        <ion-col>
+            <div id="map-container-google-11" class="map-container" >
+                <iframe src="https://maps.google.com/maps?q=18%20rue%20de%20dunkerque%2075010%20paris&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </ion-col>
+    </ion-row>
+
+    <app-footer></app-footer>
+</ion-content>

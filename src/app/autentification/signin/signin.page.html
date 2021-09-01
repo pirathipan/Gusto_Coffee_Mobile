@@ -1,0 +1,63 @@
+
+
+
+
+<ion-content>
+
+    <ion-row  class="content_signup">
+
+        <ion-row class="content_main">
+            <div class="content_img">
+                <img src="../../assets/images/6.png" alt="img_contactez" class="img_legende">
+                <div class="content_legende">
+                    <div style="margin-top: 15%;" class="content_info">
+                        <h1 class="title">Connexion</h1>
+                    </div>
+                </div>
+            </div>
+        </ion-row>
+
+
+        <ion-row  class="row content_form">
+            <div class="my-bg">
+
+                <form style="margin-top: 9%;" [formGroup]="loginForm" (ngSubmit)="login()">
+                    <!-- message d'erreur -->
+                    <div *ngIf="showErrorMessage">
+                        <h3 class="invalid">Email et mot de passe invalides veuillez réessayer</h3>
+                    </div>
+
+                    <!------- email ----------------- -->
+                    <ion-row class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email" aria-label="Email"
+                            aria-describedby="email" formControlName="email">
+                    </ion-row>
+
+
+
+                    <!------------ mot de passe --------->
+                    <ion-row class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Mot de passe" aria-label="Mot de passe"
+                            aria-describedby="password" formControlName="password">
+                    </ion-row>
+
+
+
+
+                    <!-------------- bouton validation --------->
+                    <ion-row class="text-center my-text">
+                        <button  class="btn my-color btn-default btn-block mb-3" type="submit"
+                            [disabled]="!loginForm.valid">Connexion</button>
+                    </ion-row>
+                    <ion-row class="text-center my-text">
+                        <button  (click)="createCompte()" class="btn my-color btn-default btn-block mb-3">Créer un
+                            compte</button>
+                    </ion-row>
+
+                </form>
+
+            </div>
+        </ion-row>
+    </ion-row>
+    <app-footer></app-footer>
+</ion-content>
